@@ -18,10 +18,19 @@ if [ -z "$TOKEN" ]; then
     exit 1
 fi
 
+# Remove any spaces from the token (common mistake)
+TOKEN=$(echo "$TOKEN" | tr -d ' ')
+
+# Validate token doesn't contain spaces
+if [[ "$TOKEN" =~ [[:space:]] ]]; then
+    echo "❌ Error: Token still contains spaces. Please check your token."
+    exit 1
+fi
+
 REPO="mikias1219/modernpersonalwebsite"
 
 echo ""
-echo "🔐 Setting VERCEL_TOKEN secret..."
+echo "🔐 Setting VERCEL_TOKEN secret (spaces removed automatically)..."
 gh secret set VERCEL_TOKEN -R "$REPO" --body "$TOKEN"
 
 if [ $? -eq 0 ]; then
