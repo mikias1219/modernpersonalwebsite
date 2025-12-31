@@ -81,20 +81,20 @@ export default function Contact() {
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="text-center mb-12 sm:mb-16">
           <div className="inline-block mb-4">
-            <span className="text-5xl sm:text-6xl animate-float">📬</span>
+            <span className="text-4xl sm:text-5xl animate-float">📬</span>
           </div>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 sm:mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 sm:mb-6">
             <span className="text-gray-900 dark:text-white">Get In </span>
             <span className="gradient-text">Touch</span>
           </h2>
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto font-medium">
+          <p className="text-base sm:text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto font-medium">
             Let&apos;s collaborate on <span className="text-purple-600 dark:text-purple-400 font-bold">AI & Data Science</span> projects!
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16">
           <div>
-            <h3 className="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white mb-8">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white mb-6 sm:mb-8">
               Contact <span className="gradient-text">Information</span>
             </h3>
             <div className="space-y-6">
@@ -109,13 +109,13 @@ export default function Contact() {
                   {/* Gradient background on hover */}
                   <div className={`absolute inset-0 bg-gradient-to-r ${method.gradient} opacity-0 group-hover:opacity-10 dark:group-hover:opacity-20 transition-opacity duration-300`} />
                   
-                  <div className={`p-4 rounded-xl bg-gradient-to-r ${method.gradient} bg-opacity-10 dark:bg-opacity-20 group-hover:bg-opacity-20 dark:group-hover:bg-opacity-30 transition-all duration-300 transform group-hover:scale-110 group-hover:rotate-12`}>
+                  <div className={`p-3 sm:p-4 rounded-xl bg-gradient-to-r ${method.gradient} bg-opacity-10 dark:bg-opacity-20 group-hover:bg-opacity-20 dark:group-hover:bg-opacity-30 transition-all duration-300 transform group-hover:scale-105 group-hover:rotate-12`}>
                     {method.gradient.includes('blue') ? (
-                      <method.Icon className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                      <method.Icon className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 dark:text-blue-400" />
                     ) : method.gradient.includes('purple') ? (
-                      <method.Icon className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+                      <method.Icon className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600 dark:text-purple-400" />
                     ) : (
-                      <method.Icon className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+                      <method.Icon className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-600 dark:text-emerald-400" />
                     )}
                   </div>
                   <div className="relative z-10 flex-1">
@@ -136,19 +136,19 @@ export default function Contact() {
               ))}
             </div>
 
-            <div className="mt-10 p-8 rounded-3xl bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-blue-500/10 dark:from-purple-500/20 dark:via-pink-500/20 dark:to-blue-500/20 backdrop-blur-md border-2 border-purple-200/50 dark:border-purple-700/50">
-              <div className="flex items-center gap-4">
-                <span className="text-4xl">📍</span>
+            <div className="mt-10 p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-blue-500/10 dark:from-purple-500/20 dark:via-pink-500/20 dark:to-blue-500/20 backdrop-blur-md border-2 border-purple-200/50 dark:border-purple-700/50">
+              <div className="flex items-center gap-3 sm:gap-4">
+                <span className="text-3xl sm:text-4xl">📍</span>
                 <div>
-                  <p className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-1">Location</p>
-                  <p className="text-xl font-bold text-gray-900 dark:text-white">Addis Ababa, Ethiopia</p>
+                  <p className="text-xs sm:text-sm font-semibold text-gray-600 dark:text-gray-400 mb-1">Location</p>
+                  <p className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">Addis Ababa, Ethiopia</p>
                 </div>
               </div>
             </div>
           </div>
 
           <div>
-            <h3 className="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white mb-8">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white mb-6 sm:mb-8">
               Send a <span className="gradient-text">Message</span>
             </h3>
             <form onSubmit={handleSubmit} className="space-y-6">

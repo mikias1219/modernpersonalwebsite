@@ -41,25 +41,25 @@ export default function Footer() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 sm:gap-12">
           <div>
-            <h3 className="text-2xl sm:text-3xl font-extrabold gradient-text mb-4 sm:mb-6">
+            <h3 className="text-xl sm:text-2xl font-extrabold gradient-text mb-4 sm:mb-6">
               Mikias Abate
             </h3>
-            <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg font-medium mb-4">
+            <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base font-medium mb-3">
               🤖 AI & Data Science Professional
             </p>
-            <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">
+            <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm">
               Full-Stack Developer | Azure Certified
             </p>
-            <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base mt-2">
+            <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm mt-2">
               Transforming data into intelligent solutions
             </p>
           </div>
 
           <div>
-            <h4 className="font-extrabold text-gray-900 dark:text-white mb-5 sm:mb-6 text-lg sm:text-xl">
+            <h4 className="font-extrabold text-gray-900 dark:text-white mb-5 sm:mb-6 text-base sm:text-lg">
               Quick Links
             </h4>
-            <ul className="space-y-3 text-sm sm:text-base">
+            <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
               <li>
                 <Link href="#about" className="group flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors font-medium">
                   <span className="opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all">→</span>
@@ -88,27 +88,27 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-extrabold text-gray-900 dark:text-white mb-5 sm:mb-6 text-lg sm:text-xl">
+            <h4 className="font-extrabold text-gray-900 dark:text-white mb-5 sm:mb-6 text-base sm:text-lg">
               Connect
             </h4>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-3 sm:gap-4">
               {socialLinks.map((social) => (
                 <Link
                   key={social.name}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`group relative p-3 rounded-xl bg-gradient-to-r ${social.gradient} bg-opacity-10 dark:bg-opacity-20 hover:bg-opacity-20 dark:hover:bg-opacity-30 border border-transparent hover:border-purple-300 dark:hover:border-purple-600 transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 shadow-lg hover:shadow-xl`}
+                  className={`group relative p-2.5 sm:p-3 rounded-xl bg-gradient-to-r ${social.gradient} bg-opacity-10 dark:bg-opacity-20 hover:bg-opacity-20 dark:hover:bg-opacity-30 border border-transparent hover:border-purple-300 dark:hover:border-purple-600 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-xl`}
                   aria-label={social.name}
                 >
                   {social.gradient.includes('purple') ? (
-                    <social.Icon className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+                    <social.Icon className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600 dark:text-purple-400" />
                   ) : social.gradient.includes('blue') ? (
-                    <social.Icon className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                    <social.Icon className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 dark:text-blue-400" />
                   ) : social.gradient.includes('emerald') ? (
-                    <social.Icon className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+                    <social.Icon className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-600 dark:text-emerald-400" />
                   ) : (
-                    <social.Icon className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+                    <social.Icon className="w-5 h-5 sm:w-6 sm:h-6 text-indigo-600 dark:text-indigo-400" />
                   )}
                   <div className={`absolute inset-0 bg-gradient-to-r ${social.gradient} rounded-xl opacity-0 group-hover:opacity-20 blur-md transition-opacity duration-300 -z-10`} />
                 </Link>

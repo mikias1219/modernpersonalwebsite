@@ -65,14 +65,14 @@ export default function Projects() {
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="text-center mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-3 mb-4">
-            <span className="text-5xl sm:text-6xl animate-float">🚀</span>
-            <span className="text-5xl sm:text-6xl animate-float" style={{ animationDelay: "1s" }}>💡</span>
+            <span className="text-4xl sm:text-5xl animate-float">🚀</span>
+            <span className="text-4xl sm:text-5xl animate-float" style={{ animationDelay: "1s" }}>💡</span>
           </div>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 sm:mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 sm:mb-6">
             <span className="text-gray-900 dark:text-white">Featured </span>
             <span className="gradient-text">Projects</span>
           </h2>
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto font-medium">
+          <p className="text-base sm:text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto font-medium">
             Showcasing <span className="text-purple-600 dark:text-purple-400 font-bold">AI Innovation</span> and 
             <span className="text-blue-600 dark:text-blue-400 font-bold"> Technical Excellence</span>
           </p>
@@ -96,11 +96,11 @@ export default function Projects() {
               <div className="relative z-10 flex flex-col h-full">
                 {/* Icon and Title */}
                 <div className="flex items-start justify-between mb-5">
-                  <div className="flex items-center gap-4 flex-1">
-                    <span className="text-5xl sm:text-6xl transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-500">
+                  <div className="flex items-center gap-3 flex-1">
+                    <span className="text-3xl sm:text-4xl transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
                       {project.icon}
                     </span>
-                    <h3 className={`text-xl sm:text-2xl font-extrabold bg-gradient-to-r ${project.gradient} bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300`}>
+                    <h3 className={`text-lg sm:text-xl font-extrabold bg-gradient-to-r ${project.gradient} bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300`}>
                       {project.name}
                     </h3>
                   </div>

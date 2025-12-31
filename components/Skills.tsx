@@ -59,14 +59,14 @@ export default function Skills() {
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="text-center mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-3 mb-4">
-            <span className="text-5xl sm:text-6xl animate-float">💻</span>
-            <span className="text-5xl sm:text-6xl animate-float" style={{ animationDelay: "1s" }}>🚀</span>
+            <span className="text-4xl sm:text-5xl animate-float">💻</span>
+            <span className="text-4xl sm:text-5xl animate-float" style={{ animationDelay: "1s" }}>🚀</span>
           </div>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 sm:mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 sm:mb-6">
             <span className="text-gray-900 dark:text-white">Core </span>
             <span className="gradient-text">Technologies</span>
           </h2>
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto font-medium">
+          <p className="text-base sm:text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto font-medium">
             Technologies and tools I use to build <span className="text-purple-600 dark:text-purple-400 font-bold">intelligent solutions</span>
           </p>
         </div>
@@ -84,11 +84,11 @@ export default function Skills() {
               <div className={`absolute -inset-1 bg-gradient-to-r ${category.gradient} opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500 -z-10`} />
               
               <div className="relative z-10">
-                <div className="flex items-center mb-8">
-                  <span className="text-5xl sm:text-6xl mr-4 transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-500">
+                <div className="flex items-center mb-6">
+                  <span className="text-3xl sm:text-4xl mr-3 transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
                     {category.icon}
                   </span>
-                  <h3 className={`text-3xl sm:text-4xl font-extrabold bg-gradient-to-r ${category.gradient} bg-clip-text text-transparent`}>
+                  <h3 className={`text-2xl sm:text-3xl font-extrabold bg-gradient-to-r ${category.gradient} bg-clip-text text-transparent`}>
                     {category.category}
                   </h3>
                 </div>

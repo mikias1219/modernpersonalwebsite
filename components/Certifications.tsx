@@ -75,13 +75,13 @@ export default function Certifications() {
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="text-center mb-12 sm:mb-16">
           <div className="inline-block mb-4">
-            <span className="text-5xl sm:text-6xl animate-float">🏆</span>
+            <span className="text-4xl sm:text-5xl animate-float">🏆</span>
           </div>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 sm:mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 sm:mb-6">
             <span className="text-gray-900 dark:text-white">Licenses & </span>
             <span className="gradient-text">Certifications</span>
           </h2>
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto font-medium">
+          <p className="text-base sm:text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto font-medium">
             Professional <span className="text-purple-600 dark:text-purple-400 font-bold">AI & Data Science</span> certifications
           </p>
         </div>
@@ -101,11 +101,11 @@ export default function Certifications() {
               
               <div className="relative z-10">
                 {/* Provider Badge */}
-                <div className="flex items-center gap-3 mb-5">
-                  <span className="text-3xl sm:text-4xl transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-300">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-2xl sm:text-3xl transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
                     {cert.icon}
                   </span>
-                  <span className={`px-3 py-1.5 rounded-lg bg-gradient-to-r ${cert.gradient} bg-opacity-10 dark:bg-opacity-20 text-xs sm:text-sm font-bold text-gray-700 dark:text-gray-300`}>
+                  <span className={`px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-gradient-to-r ${cert.gradient} bg-opacity-10 dark:bg-opacity-20 text-xs font-bold text-gray-700 dark:text-gray-300`}>
                     {cert.provider}
                   </span>
                 </div>
