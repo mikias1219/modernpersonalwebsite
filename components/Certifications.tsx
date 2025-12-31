@@ -2,6 +2,7 @@ export default function Certifications() {
   const certifications = [
     {
       provider: "Microsoft",
+      icon: "☁️",
       items: [
         {
           name: "Azure Data Scientist Associate",
@@ -13,6 +14,7 @@ export default function Certifications() {
     },
     {
       provider: "DataCamp",
+      icon: "📊",
       items: [
         {
           name: "Data Engineer — Professional",
@@ -42,6 +44,7 @@ export default function Certifications() {
     },
     {
       provider: "Skillsoft",
+      icon: "🎯",
       items: [
         {
           name: "Fundamentals of AI & ML: Introduction to Artificial Intelligence",
@@ -53,6 +56,7 @@ export default function Certifications() {
     },
     {
       provider: "Udacity",
+      icon: "🚀",
       items: [
         {
           name: "Data Analysis Fundamentals",
@@ -65,7 +69,7 @@ export default function Certifications() {
   ];
 
   return (
-    <div className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
+    <div className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-800">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
@@ -76,38 +80,67 @@ export default function Certifications() {
           </p>
         </div>
 
-        <div className="space-y-8">
+        <div className="space-y-12">
           {certifications.map((provider, providerIndex) => (
             <div key={providerIndex} className="mb-12">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
-                <span className="mr-3">🎓</span>
-                {provider.provider}
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="flex items-center mb-8">
+                <div className="text-4xl mr-4">{provider.icon}</div>
+                <h3 className="text-3xl font-bold text-gray-900 dark:text-white">
+                  {provider.provider}
+                </h3>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {provider.items.map((cert, certIndex) => (
                   <div
                     key={certIndex}
-                    className="bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-800 dark:to-gray-700 rounded-xl p-6 border border-purple-100 dark:border-gray-600 hover:shadow-lg transition-shadow"
+                    className="group relative overflow-hidden bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
                   >
-                    <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-                      {cert.name}
-                    </h4>
-                    <div className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
-                      <p>
-                        <span className="font-medium">Issued:</span> {cert.issued}
-                      </p>
-                      {cert.expires && (
-                        <p>
-                          <span className="font-medium">Expires:</span> {cert.expires}
-                        </p>
-                      )}
-                      {cert.credentialId && (
-                        <p>
-                          <span className="font-medium">Credential ID:</span>{" "}
-                          <span className="font-mono text-xs">{cert.credentialId}</span>
-                        </p>
-                      )}
+                    {/* Gradient overlay on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-blue-500/0 group-hover:from-purple-500/5 group-hover:to-blue-500/5 transition-all duration-300" />
+                    
+                    <div className="relative z-10">
+                      {/* Badge */}
+                      <div className="inline-flex items-center px-3 py-1 rounded-full bg-gradient-to-r from-purple-100 to-blue-100 dark:from-purple-900/30 dark:to-blue-900/30 text-purple-700 dark:text-purple-300 text-xs font-semibold mb-4">
+                        Certified
+                      </div>
+                      
+                      <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-4 leading-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-blue-600 transition-all duration-300">
+                        {cert.name}
+                      </h4>
+                      
+                      <div className="space-y-2 text-sm">
+                        <div className="flex items-center text-gray-600 dark:text-gray-400">
+                          <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          </svg>
+                          <span className="font-medium">Issued:</span>
+                          <span className="ml-2">{cert.issued}</span>
+                        </div>
+                        {cert.expires && (
+                          <div className="flex items-center text-gray-600 dark:text-gray-400">
+                            <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span className="font-medium">Expires:</span>
+                            <span className="ml-2">{cert.expires}</span>
+                          </div>
+                        )}
+                        {cert.credentialId && (
+                          <div className="flex items-start text-gray-600 dark:text-gray-400 pt-2 border-t border-gray-200 dark:border-gray-700">
+                            <svg className="w-4 h-4 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2" />
+                            </svg>
+                            <div>
+                              <span className="font-medium">ID:</span>
+                              <span className="ml-2 font-mono text-xs break-all">{cert.credentialId}</span>
+                            </div>
+                          </div>
+                        )}
+                      </div>
                     </div>
+                    
+                    {/* Decorative corner */}
+                    <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-purple-500/10 to-blue-500/10 rounded-bl-full" />
                   </div>
                 ))}
               </div>
@@ -118,4 +151,3 @@ export default function Certifications() {
     </div>
   );
 }
-
