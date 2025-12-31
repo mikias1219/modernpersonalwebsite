@@ -2,15 +2,18 @@
 
 A modern, responsive personal website built with Next.js 15, TypeScript, and Tailwind CSS.
 
+🌐 **Live Website:** [https://www.mikiasabate.tech](https://www.mikiasabate.tech)
+
 ## Features
 
 - 🎨 Modern, beautiful UI with smooth animations
 - 📱 Fully responsive design
-- 🌙 Dark mode support
+- 🌙 Dark mode support with toggle
 - ⚡ Fast and optimized with Next.js
 - 🎯 Smooth scrolling navigation
-- 📧 Contact form
+- 📧 Contact form with SMTP email integration
 - 🔗 Social media integration
+- 🎯 Optimized spacing and layout
 
 ## Tech Stack
 
@@ -52,6 +55,27 @@ npm run dev
 npm run build
 npm start
 ```
+
+## Deployment
+
+This website is configured for deployment to **mikiasabate.tech**. 
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions.
+
+### Quick Deploy to Vercel:
+
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy
+vercel --prod
+```
+
+The website is optimized for:
+- ✅ Vercel (recommended)
+- ✅ Netlify
+- ✅ Custom VPS/Server
 
 ## Project Structure
 

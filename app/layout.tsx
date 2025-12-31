@@ -15,10 +15,25 @@ export const metadata: Metadata = {
   description: "AI & Data Science Professional at IE Network Solutions | Azure Certified | Full-Stack Developer specializing in Python, Django, React, and Next.js",
   keywords: ["AI", "Data Science", "Full-Stack Developer", "Python", "Django", "React", "Next.js", "Azure"],
   authors: [{ name: "Mikias Abate" }],
+  metadataBase: new URL("https://www.mikiasabate.tech"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Mikias Abate | AI & Data Science Professional",
     description: "AI & Data Science Professional | Azure Certified | Full-Stack Developer",
     type: "website",
+    url: "https://www.mikiasabate.tech",
+    siteName: "Mikias Abate",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mikias Abate | AI & Data Science Professional",
+    description: "AI & Data Science Professional | Azure Certified | Full-Stack Developer",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
