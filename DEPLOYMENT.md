@@ -2,6 +2,33 @@
 
 This guide will help you deploy your new website to https://www.mikiasabate.tech
 
+## 🚀 Quick Deploy (Automated)
+
+### Option A: One-Click Deploy to Vercel
+
+1. **Click this button to deploy instantly:**
+   [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/mikias1219/modernpersonalwebsite)
+
+2. **Or use the automated script:**
+   ```bash
+   npm run deploy
+   ```
+
+### Option B: GitHub Actions (Automatic)
+
+The repository is configured with GitHub Actions for automatic deployment:
+
+1. **Set up Vercel secrets in GitHub:**
+   - Go to your repository → Settings → Secrets and variables → Actions
+   - Add these secrets:
+     - `VERCEL_TOKEN` - Get from Vercel dashboard → Settings → Tokens
+     - `VERCEL_ORG_ID` - Get from Vercel dashboard → Settings → General
+     - `VERCEL_PROJECT_ID` - Get after first deployment
+
+2. **Automatic deployment:**
+   - Every push to `main` branch will automatically deploy
+   - Check Actions tab in GitHub to see deployment status
+
 ## Deployment Options
 
 ### Option 1: Vercel (Recommended for Next.js)
