@@ -14,33 +14,40 @@ export default function ThemeToggle() {
     
     const initialTheme = savedTheme || (prefersDark ? "dark" : "light");
     setTheme(initialTheme);
-    applyTheme(initialTheme);
+    
+    // Ensure theme is applied
+    const root = document.documentElement;
+    if (initialTheme === "dark") {
+      root.classList.add("dark");
+    } else {
+      root.classList.remove("dark");
+    }
   }, []);
 
-  const applyTheme = (newTheme: "light" | "dark") => {
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    
     const root = document.documentElement;
     if (newTheme === "dark") {
       root.classList.add("dark");
     } else {
       root.classList.remove("dark");
     }
+    
     localStorage.setItem("theme", newTheme);
   };
 
-  const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
-    applyTheme(newTheme);
-  };
-
   if (!mounted) {
-    return null;
+    return (
+      <div className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 w-9 h-9" />
+    );
   }
 
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+      className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200"
       aria-label="Toggle theme"
     >
       {theme === "light" ? (

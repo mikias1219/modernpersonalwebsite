@@ -24,44 +24,44 @@ export default function Hero() {
   ];
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-purple-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+    <div className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 sm:py-20 bg-gradient-to-br from-purple-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <div className="max-w-7xl mx-auto text-center">
         <div
-          className={`space-y-8 animate-fade-in-up ${
+          className={`space-y-6 sm:space-y-8 animate-fade-in-up ${
             mounted ? "opacity-100" : "opacity-0"
           } transition-opacity duration-1000`}
         >
-          <div className="space-y-4">
-            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white">
+          <div className="space-y-3 sm:space-y-4">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white">
               Hi, I&apos;m{" "}
               <span className="gradient-text">Mikias Abate</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 font-medium">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 font-medium">
               AI & Data Science Professional
             </p>
-            <p className="text-lg md:text-xl text-gray-500 dark:text-gray-400 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-gray-500 dark:text-gray-400 max-w-3xl mx-auto px-4">
               Azure Certified | Full-Stack Developer
               <br />
               Python • Django • React • Next.js
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 px-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-2 sm:pt-4 px-4">
             <Link
               href="#contact"
-              className="w-full sm:w-auto px-6 sm:px-8 py-3 text-center bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-semibold hover:from-purple-700 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 text-center bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-semibold hover:from-purple-700 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
               Get In Touch
             </Link>
             <Link
               href="#projects"
-              className="w-full sm:w-auto px-6 sm:px-8 py-3 text-center border-2 border-purple-600 text-purple-600 dark:text-purple-400 dark:border-purple-400 rounded-full font-semibold hover:bg-purple-600 hover:text-white dark:hover:bg-purple-400 dark:hover:text-gray-900 transition-all duration-300"
+              className="w-full sm:w-auto px-6 sm:px-8 py-2.5 sm:py-3 text-center border-2 border-purple-600 text-purple-600 dark:text-purple-400 dark:border-purple-400 rounded-full font-semibold hover:bg-purple-600 hover:text-white dark:hover:bg-purple-400 dark:hover:text-gray-900 transition-all duration-300"
             >
               View Projects
             </Link>
           </div>
 
-          <div className="flex items-center justify-center space-x-6 pt-8">
+          <div className="flex items-center justify-center space-x-6 pt-6 sm:pt-8">
             {socialLinks.map((social) => (
               <Link
                 key={social.name}
@@ -71,17 +71,17 @@ export default function Hero() {
                 className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
                 aria-label={social.name}
               >
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 24 24">
                   <path d={social.icon} />
                 </svg>
               </Link>
             ))}
           </div>
 
-          <div className="pt-12">
+          <div className="pt-8 sm:pt-10">
             <div className="inline-block animate-bounce">
               <svg
-                className="w-6 h-6 text-gray-400"
+                className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400"
                 fill="none"
                 strokeLinecap="round"
                 strokeLinejoin="round"
