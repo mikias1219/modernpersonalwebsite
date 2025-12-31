@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { FaGithub, FaLinkedin, FaGlobe } from "react-icons/fa";
+import { HiMail } from "react-icons/hi";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -41,63 +43,59 @@ export default function Contact() {
 
   const contactMethods = [
     {
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-        </svg>
-      ),
+      Icon: HiMail,
       label: "Email",
       value: "mikiyasabate1219@gmail.com",
       link: "mailto:mikiyasabate1219@gmail.com",
+      gradient: "from-blue-500 to-cyan-500",
     },
     {
-      icon: (
-        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-        </svg>
-      ),
+      Icon: FaLinkedin,
       label: "LinkedIn",
       value: "mikiyas-abate",
       link: "https://www.linkedin.com/in/mikiyas-abate",
+      gradient: "from-blue-600 to-indigo-600",
     },
     {
-      icon: (
-        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-        </svg>
-      ),
+      Icon: FaGithub,
       label: "GitHub",
       value: "mikias1219",
       link: "https://github.com/mikias1219",
+      gradient: "from-purple-500 to-pink-500",
     },
     {
-      icon: (
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-        </svg>
-      ),
+      Icon: FaGlobe,
       label: "Portfolio",
       value: "mikiasabate.tech",
       link: "https://www.mikiasabate.tech",
+      gradient: "from-emerald-500 to-teal-500",
     },
   ];
 
   return (
-    <div className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-10 sm:mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
-            Get In <span className="gradient-text">Touch</span>
+    <div className="relative py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-pink-50/30 to-purple-50/30 dark:from-gray-900 dark:via-pink-900/10 dark:to-purple-900/10 overflow-hidden">
+      {/* Animated background decorations */}
+      <div className="absolute top-10 left-20 w-72 h-72 bg-gradient-to-r from-pink-400/20 to-purple-400/20 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-10 right-20 w-96 h-96 bg-gradient-to-l from-blue-400/20 to-cyan-400/20 rounded-full blur-3xl animate-float" style={{ animationDelay: "2s" }} />
+
+      <div className="relative z-10 max-w-7xl mx-auto">
+        <div className="text-center mb-12 sm:mb-16">
+          <div className="inline-block mb-4">
+            <span className="text-5xl sm:text-6xl animate-float">📬</span>
+          </div>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 sm:mb-6">
+            <span className="text-gray-900 dark:text-white">Get In </span>
+            <span className="gradient-text">Touch</span>
           </h2>
-          <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            I&apos;d love to hear from you. Let&apos;s connect!
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto font-medium">
+            Let&apos;s collaborate on <span className="text-purple-600 dark:text-purple-400 font-bold">AI & Data Science</span> projects!
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16">
           <div>
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-              Contact Information
+            <h3 className="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white mb-8">
+              Contact <span className="gradient-text">Information</span>
             </h3>
             <div className="space-y-6">
               {contactMethods.map((method, index) => (
@@ -106,35 +104,58 @@ export default function Contact() {
                   href={method.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center space-x-4 p-4 rounded-xl bg-gray-50 dark:bg-gray-800 hover:bg-purple-50 dark:hover:bg-gray-700 transition-colors group"
+                  className="group relative overflow-hidden flex items-center space-x-5 p-6 rounded-2xl bg-gradient-to-br from-white/80 to-gray-50/80 dark:from-gray-800/80 dark:to-gray-900/80 backdrop-blur-md border-2 border-transparent hover:border-purple-300 dark:hover:border-purple-600 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl"
                 >
-                  <div className="text-purple-600 dark:text-purple-400 group-hover:scale-110 transition-transform">
-                    {method.icon}
+                  {/* Gradient background on hover */}
+                  <div className={`absolute inset-0 bg-gradient-to-r ${method.gradient} opacity-0 group-hover:opacity-10 dark:group-hover:opacity-20 transition-opacity duration-300`} />
+                  
+                  <div className={`p-4 rounded-xl bg-gradient-to-r ${method.gradient} bg-opacity-10 dark:bg-opacity-20 group-hover:bg-opacity-20 dark:group-hover:bg-opacity-30 transition-all duration-300 transform group-hover:scale-110 group-hover:rotate-12`}>
+                    {method.gradient.includes('blue') ? (
+                      <method.Icon className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                    ) : method.gradient.includes('purple') ? (
+                      <method.Icon className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+                    ) : (
+                      <method.Icon className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+                    )}
                   </div>
-                  <div>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">{method.label}</p>
-                    <p className="text-gray-900 dark:text-white font-medium">{method.value}</p>
+                  <div className="relative z-10 flex-1">
+                    <p className="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-1">{method.label}</p>
+                    <p className={`text-lg font-bold bg-gradient-to-r ${method.gradient} bg-clip-text text-transparent`}>
+                      {method.value}
+                    </p>
                   </div>
+                  <svg
+                    className="w-5 h-5 text-gray-400 group-hover:text-purple-600 dark:group-hover:text-purple-400 transform group-hover:translate-x-2 transition-all duration-300"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
                 </a>
               ))}
             </div>
 
-            <div className="mt-8 p-6 rounded-xl bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-800 dark:to-gray-700">
-              <p className="text-gray-700 dark:text-gray-300">
-                <span className="font-semibold">Location:</span> Addis Ababa, Ethiopia
-              </p>
+            <div className="mt-10 p-8 rounded-3xl bg-gradient-to-br from-purple-500/10 via-pink-500/10 to-blue-500/10 dark:from-purple-500/20 dark:via-pink-500/20 dark:to-blue-500/20 backdrop-blur-md border-2 border-purple-200/50 dark:border-purple-700/50">
+              <div className="flex items-center gap-4">
+                <span className="text-4xl">📍</span>
+                <div>
+                  <p className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-1">Location</p>
+                  <p className="text-xl font-bold text-gray-900 dark:text-white">Addis Ababa, Ethiopia</p>
+                </div>
+              </div>
             </div>
           </div>
 
           <div>
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
-              Send a Message
+            <h3 className="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white mb-8">
+              Send a <span className="gradient-text">Message</span>
             </h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                  className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-3"
                 >
                   Name
                 </label>
@@ -144,14 +165,14 @@ export default function Contact() {
                   required
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all"
+                  className="w-full px-5 py-4 rounded-xl border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-4 focus:ring-purple-500/50 focus:border-purple-500 dark:focus:border-purple-400 transition-all shadow-lg hover:shadow-xl"
                   placeholder="Your name"
                 />
               </div>
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                  className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-3"
                 >
                   Email
                 </label>
@@ -161,14 +182,14 @@ export default function Contact() {
                   required
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all"
+                  className="w-full px-5 py-4 rounded-xl border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-4 focus:ring-purple-500/50 focus:border-purple-500 dark:focus:border-purple-400 transition-all shadow-lg hover:shadow-xl"
                   placeholder="your.email@example.com"
                 />
               </div>
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                  className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-3"
                 >
                   Message
                 </label>
@@ -178,16 +199,34 @@ export default function Contact() {
                   rows={6}
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-purple-600 focus:border-transparent transition-all resize-none"
+                  className="w-full px-5 py-4 rounded-xl border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-4 focus:ring-purple-500/50 focus:border-purple-500 dark:focus:border-purple-400 transition-all resize-none shadow-lg hover:shadow-xl"
                   placeholder="Your message..."
                 />
               </div>
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg font-semibold hover:from-purple-700 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="group relative w-full px-8 py-5 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 text-white rounded-xl font-bold text-lg sm:text-xl hover:from-purple-700 hover:via-pink-700 hover:to-blue-700 transition-all duration-300 shadow-2xl hover:shadow-purple-500/50 transform hover:-translate-y-2 disabled:opacity-50 disabled:cursor-not-allowed overflow-hidden"
               >
-                {isSubmitting ? "Sending..." : "Send Message"}
+                <span className="relative z-10 flex items-center justify-center">
+                  {isSubmitting ? (
+                    <>
+                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                      </svg>
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      Send Message
+                      <svg className="w-6 h-6 ml-3 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                      </svg>
+                    </>
+                  )}
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </button>
             </form>
           </div>
@@ -196,4 +235,3 @@ export default function Contact() {
     </div>
   );
 }
-

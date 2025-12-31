@@ -58,22 +58,44 @@ npm start
 
 ## Deployment
 
-This website is configured for deployment to **mikiasabate.tech**. 
+This website is configured for deployment to **mikiasabate.tech** with automatic CI/CD.
 
-See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions.
+### 🚀 Automatic Deployment (CI/CD)
 
-### Quick Deploy to Vercel:
+The website automatically deploys to production when you push to the `main` branch:
+
+1. **Push to GitHub** → Triggers GitHub Actions
+2. **Build & Test** → Runs linter and builds the project
+3. **Deploy to Vercel** → Automatically deploys to production
+4. **Update Domain** → Your `.tech` domain is automatically updated
+
+**Setup Instructions:**
+See [.github/SETUP_CI_CD.md](.github/SETUP_CI_CD.md) for detailed CI/CD setup instructions.
+
+**Required GitHub Secrets:**
+- `VERCEL_TOKEN` - Your Vercel API token
+- `VERCEL_ORG_ID` - Your Vercel organization/user ID
+- `VERCEL_PROJECT_ID` - Your Vercel project ID
+
+### Manual Deployment
+
+If you need to deploy manually:
 
 ```bash
 # Install Vercel CLI
 npm i -g vercel
 
-# Deploy
+# Deploy to production
 vercel --prod
 ```
 
+Or use npm script:
+```bash
+npm run deploy:vercel
+```
+
 The website is optimized for:
-- ✅ Vercel (recommended)
+- ✅ Vercel (recommended) - With automatic CI/CD
 - ✅ Netlify
 - ✅ Custom VPS/Server
 
