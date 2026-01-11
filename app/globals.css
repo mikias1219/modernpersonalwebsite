@@ -11,17 +11,16 @@
   --font-sans: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Smooth scrolling */
@@ -127,17 +126,16 @@ html {
   background-clip: text;
   background-size: 200% 200%;
   animation: gradient-shift 3s ease infinite;
+  font-weight: 800;
 }
 
-@media (prefers-color-scheme: dark) {
-  .gradient-text {
-    background: linear-gradient(135deg, #a78bfa 0%, #c084fc 50%, #f0abfc 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    background-size: 200% 200%;
-    animation: gradient-shift 3s ease infinite;
-  }
+.dark .gradient-text {
+  background: linear-gradient(135deg, #a78bfa 0%, #c084fc 50%, #f0abfc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
 }
 
 /* AI-themed background patterns */
