@@ -8,7 +8,6 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
-  // Ensure proper domain handling
   async headers() {
     return [
       {

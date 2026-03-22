@@ -77,6 +77,9 @@ Workflow: [.github/workflows/ci-cd.yml](.github/workflows/ci-cd.yml).
 - `VERCEL_ORG_ID` - Your Vercel organization/user ID
 - `VERCEL_PROJECT_ID` - Your Vercel project ID
 
+**Optional repository variable** (Settings → Secrets and variables → Actions → Variables):
+- `NEXT_PUBLIC_SITE_URL` — Canonical public URL for metadata (defaults to `https://mikiasabatesite.vercel.app` in the workflow). Set this if your production URL changes. Also set the same key in **Vercel → Project → Environment Variables** so dashboard-triggered deploys match.
+
 ### Manual Deployment
 
 If you need to deploy manually:

@@ -1,6 +1,10 @@
 # CI on every push / PR. Production deploy to Vercel on push to main only.
 # If the repo is also connected in the Vercel dashboard, disable automatic
 # deployments there to avoid duplicate builds (use Actions OR dashboard, not both).
+#
+# Canonical URL for metadata (NEXT_PUBLIC_* is baked in at build time):
+#   Optional repo variable NEXT_PUBLIC_SITE_URL overrides the default below.
+#   Also set the same in Vercel → Project → Environment Variables for dashboard-triggered builds.
 
 name: CI / CD
 
@@ -21,6 +25,10 @@ permissions:
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
+
+env:
+  # Default matches lib/site.ts DEFAULT_SITE_URL; override via Settings → Variables → NEXT_PUBLIC_SITE_URL
+  NEXT_PUBLIC_SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL || 'https://mikiasabatesite.vercel.app' }}
 
 jobs:
   ci:
@@ -71,12 +79,13 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          vercel-args: "--prod"
+          vercel-args: "--prod --build-env NEXT_PUBLIC_SITE_URL=${{ env.NEXT_PUBLIC_SITE_URL }}"
           scope: ${{ secrets.VERCEL_ORG_ID }}
 
       - name: Summary
         run: |
           echo "mikiasabatesite deployed to production"
+          echo "NEXT_PUBLIC_SITE_URL (build): ${{ env.NEXT_PUBLIC_SITE_URL }}"
           echo "Commit: ${{ github.sha }}"
           echo "Author: ${{ github.actor }}"
 
@@ -99,3 +108,4 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           github-comment: true
           scope: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-args: "--build-env NEXT_PUBLIC_SITE_URL=${{ env.NEXT_PUBLIC_SITE_URL }}"
