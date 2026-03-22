@@ -1,8 +1,8 @@
-# Mikias Abate - Personal Website
+# mikiasabatesite
 
-A modern, responsive personal website built with Next.js 15, TypeScript, and Tailwind CSS.
+Portfolio site for **Mikias Abate** — Next.js, TypeScript, Tailwind CSS.
 
-🌐 **Live Website:** [https://www.mikiasabate.tech](https://www.mikiasabate.tech)
+🌐 **Live:** [https://www.mikiasabate.tech](https://www.mikiasabate.tech)
 
 ## Features
 
@@ -31,10 +31,10 @@ A modern, responsive personal website built with Next.js 15, TypeScript, and Tai
 
 ### Installation
 
-1. Clone the repository:
+1. Clone the repository and enter the project directory:
 ```bash
 git clone <your-repo-url>
-cd website
+cd <repo-folder>
 ```
 
 2. Install dependencies:
@@ -58,21 +58,21 @@ npm start
 
 ## Deployment
 
-This website is configured for deployment to **mikiasabate.tech** with automatic CI/CD.
+**mikiasabatesite** is configured for **mikiasabate.tech** with automatic CI/CD.
 
-### 🚀 Automatic Deployment (CI/CD)
+### 🚀 Automatic deployment (CI/CD)
 
-The website automatically deploys to production when you push to the `main` branch:
+Workflow: [.github/workflows/ci-cd.yml](.github/workflows/ci-cd.yml).
 
-1. **Push to GitHub** → Triggers GitHub Actions
-2. **Build & Test** → Runs linter and builds the project
-3. **Deploy to Vercel** → Automatically deploys to production
-4. **Update Domain** → Your `.tech` domain is automatically updated
+| Event | What runs |
+| --- | --- |
+| Push to any branch | Lint + production build |
+| Push to `main` | Same, then **production** deploy to Vercel |
+| Pull request into `main` | Lint + build, then **preview** deploy (same-repo PRs only) |
 
-**Setup Instructions:**
-See [.github/SETUP_CI_CD.md](.github/SETUP_CI_CD.md) for detailed CI/CD setup instructions.
+**Vercel:** In the Vercel project, either use **GitHub Actions only** or **Vercel Git integration**—not both—or you will get duplicate deployments.
 
-**Required GitHub Secrets:**
+**Required GitHub repository secrets:**
 - `VERCEL_TOKEN` - Your Vercel API token
 - `VERCEL_ORG_ID` - Your Vercel organization/user ID
 - `VERCEL_PROJECT_ID` - Your Vercel project ID
@@ -94,7 +94,7 @@ Or use npm script:
 npm run deploy:vercel
 ```
 
-The website is optimized for:
+The app is optimized for:
 - ✅ Vercel (recommended) - With automatic CI/CD
 - ✅ Netlify
 - ✅ Custom VPS/Server
@@ -102,7 +102,7 @@ The website is optimized for:
 ## Project Structure
 
 ```
-website/
+mikiasabatesite/
 ├── app/
 │   ├── layout.tsx      # Root layout with metadata
 │   ├── page.tsx        # Homepage

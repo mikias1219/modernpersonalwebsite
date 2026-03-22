@@ -1,38 +1,90 @@
 @import "tailwindcss";
 
+/* Class-based dark mode (next-themes sets class="dark" on <html>).
+   Without this, Tailwind v4 `dark:` follows OS only — Skills/Footer etc. ignore the toggle. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --accent: #0d9488;
+  --accent-bright: #14b8a6;
+}
+
+.dark {
+  --background: #020617;
+  --foreground: #f1f5f9;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 }
 
-.dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: var(--font-sans);
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+/* Touch: reduce delay; keep tap targets comfortable on mobile */
+@media (pointer: coarse) {
+  button,
+  a,
+  [role="button"] {
+    touch-action: manipulation;
+  }
 }
 
-/* Custom animations */
-@keyframes fadeInUp {
+/* Hero mesh — teal / cyan (light + dark tuned for contrast) */
+.mesh-bg {
+  background-color: #f8fafc;
+  background-image:
+    radial-gradient(at 35% 18%, rgba(13, 148, 136, 0.14) 0px, transparent 52%),
+    radial-gradient(at 85% 8%, rgba(6, 182, 212, 0.12) 0px, transparent 48%),
+    radial-gradient(at 8% 55%, rgba(15, 118, 110, 0.08) 0px, transparent 45%),
+    radial-gradient(at 78% 48%, rgba(45, 212, 191, 0.09) 0px, transparent 50%),
+    radial-gradient(at 12% 92%, rgba(8, 145, 178, 0.08) 0px, transparent 42%);
+}
+
+.dark .mesh-bg {
+  background-color: #020617;
+  background-image:
+    radial-gradient(at 35% 18%, rgba(45, 212, 191, 0.12) 0px, transparent 52%),
+    radial-gradient(at 85% 8%, rgba(6, 182, 212, 0.1) 0px, transparent 48%),
+    radial-gradient(at 8% 55%, rgba(13, 148, 136, 0.1) 0px, transparent 45%),
+    radial-gradient(at 78% 48%, rgba(20, 184, 166, 0.08) 0px, transparent 50%),
+    radial-gradient(at 12% 92%, rgba(8, 145, 178, 0.1) 0px, transparent 42%);
+}
+
+.grid-overlay {
+  background-size: 48px 48px;
+  background-image:
+    linear-gradient(to right, rgba(15, 23, 42, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.05) 1px, transparent 1px);
+}
+
+.dark .grid-overlay {
+  background-image:
+    linear-gradient(to right, rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+}
+
+@keyframes fade-in-up {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -41,150 +93,271 @@ html {
 }
 
 .animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out;
+  animation: fade-in-up 0.55s ease-out both;
 }
 
-@keyframes shimmer {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
+.section-alt {
+  background: linear-gradient(180deg, rgba(13, 148, 136, 0.05) 0%, transparent 34%),
+    linear-gradient(180deg, transparent 66%, rgba(6, 182, 212, 0.05) 100%);
 }
 
-.animate-shimmer {
-  animation: shimmer 2s infinite;
+.dark .section-alt {
+  background: linear-gradient(180deg, rgba(13, 148, 136, 0.08) 0%, transparent 36%),
+    linear-gradient(180deg, transparent 64%, rgba(6, 182, 212, 0.07) 100%);
 }
 
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
+/* Vaul drawer styles (forked from vaul; upstream vaul/style.css has invalid `[data-vaul-handle-hitarea]: {`) */
+[data-vaul-drawer] {
+  touch-action: none;
+  will-change: transform;
+  transition: transform 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.32, 0.72, 0, 1);
 }
 
-.animate-float {
-  animation: float 6s ease-in-out infinite;
+[data-vaul-drawer][data-vaul-snap-points="false"][data-vaul-drawer-direction="bottom"][data-state="open"] {
+  animation-name: slideFromBottom;
+}
+[data-vaul-drawer][data-vaul-snap-points="false"][data-vaul-drawer-direction="bottom"][data-state="closed"] {
+  animation-name: slideToBottom;
 }
 
-@keyframes pulse-glow {
-  0%, 100% {
-    opacity: 1;
-    box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
-  }
-  50% {
-    opacity: 0.8;
-    box-shadow: 0 0 40px rgba(139, 92, 246, 0.8);
-  }
+[data-vaul-drawer][data-vaul-snap-points="false"][data-vaul-drawer-direction="top"][data-state="open"] {
+  animation-name: slideFromTop;
+}
+[data-vaul-drawer][data-vaul-snap-points="false"][data-vaul-drawer-direction="top"][data-state="closed"] {
+  animation-name: slideToTop;
 }
 
-.animate-pulse-glow {
-  animation: pulse-glow 3s ease-in-out infinite;
+[data-vaul-drawer][data-vaul-snap-points="false"][data-vaul-drawer-direction="left"][data-state="open"] {
+  animation-name: slideFromLeft;
+}
+[data-vaul-drawer][data-vaul-snap-points="false"][data-vaul-drawer-direction="left"][data-state="closed"] {
+  animation-name: slideToLeft;
 }
 
-@keyframes gradient-shift {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
+[data-vaul-drawer][data-vaul-snap-points="false"][data-vaul-drawer-direction="right"][data-state="open"] {
+  animation-name: slideFromRight;
+}
+[data-vaul-drawer][data-vaul-snap-points="false"][data-vaul-drawer-direction="right"][data-state="closed"] {
+  animation-name: slideToRight;
 }
 
-.animate-gradient {
-  background-size: 200% 200%;
-  animation: gradient-shift 3s ease infinite;
+[data-vaul-drawer][data-vaul-snap-points="true"][data-vaul-drawer-direction="bottom"] {
+  transform: translate3d(0, var(--initial-transform, 100%), 0);
 }
 
-@keyframes neural-network {
-  0% {
-    opacity: 0.3;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.6;
-    transform: scale(1.1);
-  }
-  100% {
-    opacity: 0.3;
-    transform: scale(1);
-  }
+[data-vaul-drawer][data-vaul-snap-points="true"][data-vaul-drawer-direction="top"] {
+  transform: translate3d(0, calc(var(--initial-transform, 100%) * -1), 0);
 }
 
-.animate-neural {
-  animation: neural-network 4s ease-in-out infinite;
+[data-vaul-drawer][data-vaul-snap-points="true"][data-vaul-drawer-direction="left"] {
+  transform: translate3d(calc(var(--initial-transform, 100%) * -1), 0, 0);
 }
 
-/* Gradient text with more vibrant colors */
-.gradient-text {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  background-size: 200% 200%;
-  animation: gradient-shift 3s ease infinite;
-  font-weight: 800;
+[data-vaul-drawer][data-vaul-snap-points="true"][data-vaul-drawer-direction="right"] {
+  transform: translate3d(var(--initial-transform, 100%), 0, 0);
 }
 
-.dark .gradient-text {
-  background: linear-gradient(135deg, #a78bfa 0%, #c084fc 50%, #f0abfc 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  background-size: 200% 200%;
-  animation: gradient-shift 3s ease infinite;
+[data-vaul-drawer][data-vaul-delayed-snap-points="true"][data-vaul-drawer-direction="top"] {
+  transform: translate3d(0, var(--snap-point-height, 0), 0);
 }
 
-/* AI-themed background patterns */
-.ai-pattern {
-  background-image: 
-    radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 40% 20%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
-  background-size: 100% 100%;
+[data-vaul-drawer][data-vaul-delayed-snap-points="true"][data-vaul-drawer-direction="bottom"] {
+  transform: translate3d(0, var(--snap-point-height, 0), 0);
 }
 
-/* Glowing effect */
-.glow-effect {
-  position: relative;
+[data-vaul-drawer][data-vaul-delayed-snap-points="true"][data-vaul-drawer-direction="left"] {
+  transform: translate3d(var(--snap-point-height, 0), 0, 0);
 }
 
-.glow-effect::before {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #667eea);
-  border-radius: inherit;
+[data-vaul-drawer][data-vaul-delayed-snap-points="true"][data-vaul-drawer-direction="right"] {
+  transform: translate3d(var(--snap-point-height, 0), 0, 0);
+}
+
+[data-vaul-overlay][data-vaul-snap-points="false"] {
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.32, 0.72, 0, 1);
+}
+[data-vaul-overlay][data-vaul-snap-points="false"][data-state="open"] {
+  animation-name: fadeIn;
+}
+[data-vaul-overlay][data-state="closed"] {
+  animation-name: fadeOut;
+}
+
+[data-vaul-animate="false"] {
+  animation: none !important;
+}
+
+[data-vaul-overlay][data-vaul-snap-points="true"] {
   opacity: 0;
-  filter: blur(10px);
-  transition: opacity 0.3s;
-  z-index: -1;
+  transition: opacity 0.5s cubic-bezier(0.32, 0.72, 0, 1);
 }
 
-.glow-effect:hover::before {
-  opacity: 0.6;
+[data-vaul-overlay][data-vaul-snap-points="true"] {
+  opacity: 1;
 }
 
-/* Particle effect container */
-.particles {
+[data-vaul-drawer]:not([data-vaul-custom-container="true"])::after {
+  content: "";
   position: absolute;
-  top: 0;
+  background: inherit;
+  background-color: inherit;
+}
+
+[data-vaul-drawer][data-vaul-drawer-direction="top"]::after {
+  top: initial;
+  bottom: 100%;
   left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  pointer-events: none;
+  right: 0;
+  height: 200%;
 }
 
-.particle {
+[data-vaul-drawer][data-vaul-drawer-direction="bottom"]::after {
+  top: 100%;
+  bottom: initial;
+  left: 0;
+  right: 0;
+  height: 200%;
+}
+
+[data-vaul-drawer][data-vaul-drawer-direction="left"]::after {
+  left: initial;
+  right: 100%;
+  top: 0;
+  bottom: 0;
+  width: 200%;
+}
+
+[data-vaul-drawer][data-vaul-drawer-direction="right"]::after {
+  left: 100%;
+  right: initial;
+  top: 0;
+  bottom: 0;
+  width: 200%;
+}
+
+[data-vaul-overlay][data-vaul-snap-points="true"]:not([data-vaul-snap-points-overlay="true"]):not([data-state="closed"]) {
+  opacity: 0;
+}
+
+[data-vaul-overlay][data-vaul-snap-points-overlay="true"] {
+  opacity: 1;
+}
+
+[data-vaul-handle] {
+  display: block;
+  position: relative;
+  opacity: 0.7;
+  background: #e2e2e4;
+  margin-left: auto;
+  margin-right: auto;
+  height: 5px;
+  width: 32px;
+  border-radius: 1rem;
+  touch-action: pan-y;
+}
+
+[data-vaul-handle]:hover,
+[data-vaul-handle]:active {
+  opacity: 1;
+}
+
+[data-vaul-handle-hitarea] {
   position: absolute;
-  width: 4px;
-  height: 4px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  border-radius: 50%;
-  opacity: 0.6;
-  animation: float 8s ease-in-out infinite;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: max(100%, 2.75rem);
+  height: max(100%, 2.75rem);
+  touch-action: inherit;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  [data-vaul-drawer] {
+    user-select: none;
+  }
+}
+
+@media (pointer: fine) {
+  [data-vaul-handle-hitarea] {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slideFromBottom {
+  from {
+    transform: translate3d(0, var(--initial-transform, 100%), 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideToBottom {
+  to {
+    transform: translate3d(0, var(--initial-transform, 100%), 0);
+  }
+}
+
+@keyframes slideFromTop {
+  from {
+    transform: translate3d(0, calc(var(--initial-transform, 100%) * -1), 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideToTop {
+  to {
+    transform: translate3d(0, calc(var(--initial-transform, 100%) * -1), 0);
+  }
+}
+
+@keyframes slideFromLeft {
+  from {
+    transform: translate3d(calc(var(--initial-transform, 100%) * -1), 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideToLeft {
+  to {
+    transform: translate3d(calc(var(--initial-transform, 100%) * -1), 0, 0);
+  }
+}
+
+@keyframes slideFromRight {
+  from {
+    transform: translate3d(var(--initial-transform, 100%), 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideToRight {
+  to {
+    transform: translate3d(var(--initial-transform, 100%), 0, 0);
+  }
 }

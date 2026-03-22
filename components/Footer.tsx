@@ -1,131 +1,91 @@
 import Link from "next/link";
 import { FaGithub, FaLinkedin, FaGlobe } from "react-icons/fa";
 import { HiMail } from "react-icons/hi";
+import { siteNavLinks } from "@/lib/site-nav";
+import { SITE } from "@/lib/site";
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
+  const year = new Date().getFullYear();
 
-  const socialLinks = [
-    {
-      name: "GitHub",
-      href: "https://github.com/mikias1219",
-      Icon: FaGithub,
-      gradient: "from-purple-500 to-pink-500",
-    },
-    {
-      name: "LinkedIn",
-      href: "https://www.linkedin.com/in/mikiyas-abate",
-      Icon: FaLinkedin,
-      gradient: "from-blue-500 to-cyan-500",
-    },
-    {
-      name: "Email",
-      href: "mailto:mikiyasabate1219@gmail.com",
-      Icon: HiMail,
-      gradient: "from-emerald-500 to-teal-500",
-    },
-    {
-      name: "Portfolio",
-      href: "https://www.mikiasabate.tech",
-      Icon: FaGlobe,
-      gradient: "from-indigo-500 to-purple-500",
-    },
+  const social = [
+    { name: "GitHub", href: SITE.githubUrl, Icon: FaGithub },
+    { name: "LinkedIn", href: SITE.linkedInUrl, Icon: FaLinkedin },
+    { name: "Email", href: `mailto:${SITE.email}`, Icon: HiMail },
+    { name: "Site", href: SITE.siteUrl, Icon: FaGlobe },
   ];
 
   return (
-    <footer className="relative bg-gradient-to-b from-gray-50 via-purple-50/50 to-pink-50/50 dark:from-gray-900 dark:via-purple-900/20 dark:to-pink-900/20 border-t-2 border-purple-200/50 dark:border-purple-800/50 overflow-hidden">
-      {/* Background decorations */}
-      <div className="absolute top-0 left-0 w-64 h-64 bg-gradient-to-r from-purple-400/10 to-pink-400/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-l from-blue-400/10 to-cyan-400/10 rounded-full blur-3xl" />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 sm:gap-12">
-          <div>
-            <h3 className="text-xl sm:text-2xl font-extrabold gradient-text mb-4 sm:mb-6">
-              Mikias Abate
-            </h3>
-            <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base font-medium mb-3">
-              🤖 AI & Data Science Professional
+    <footer className="border-t border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-950">
+      <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+          <div className="lg:col-span-2">
+            <div className="flex items-center gap-2.5">
+              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-900 text-xs font-bold text-white dark:bg-teal-500 dark:text-slate-950">
+                MA
+              </span>
+              <span className="text-sm font-semibold tracking-tight text-slate-900 dark:text-slate-50">
+                {SITE.name}
+              </span>
+            </div>
+            <p className="mt-4 max-w-md text-sm font-medium leading-relaxed text-teal-900 dark:text-teal-200/90">
+              {SITE.tagline}
             </p>
-            <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm">
-              Full-Stack Developer | Azure Certified
+            <p className="mt-2 max-w-md text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+              Full-stack delivery with Python, cloud, and modern frontends—systems built for production
+              and hiring-team review.
             </p>
-            <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm mt-2">
-              Transforming data into intelligent solutions
-            </p>
+            <div className="mt-6 flex flex-wrap gap-2">
+              {social.map(({ name, href, Icon }) => (
+                <a
+                  key={name}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={name}
+                  className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg border border-slate-200 text-slate-600 transition hover:border-teal-400/50 hover:text-slate-900 active:scale-[0.98] dark:border-slate-600 dark:text-slate-300 dark:hover:border-teal-500/50 dark:hover:text-white"
+                >
+                  <Icon className="h-4 w-4" />
+                </a>
+              ))}
+            </div>
           </div>
 
           <div>
-            <h4 className="font-extrabold text-gray-900 dark:text-white mb-5 sm:mb-6 text-base sm:text-lg">
-              Quick Links
-            </h4>
-            <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
-              <li>
-                <Link href="#about" className="group flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors font-medium">
-                  <span className="opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all">→</span>
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="#skills" className="group flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors font-medium">
-                  <span className="opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all">→</span>
-                  Skills
-                </Link>
-              </li>
-              <li>
-                <Link href="#projects" className="group flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors font-medium">
-                  <span className="opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all">→</span>
-                  Projects
-                </Link>
-              </li>
-              <li>
-                <Link href="#contact" className="group flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors font-medium">
-                  <span className="opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all">→</span>
-                  Contact
-                </Link>
-              </li>
+            <p className="text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400">
+              Navigate
+            </p>
+            <ul className="mt-4 space-y-2 text-sm">
+              {siteNavLinks.map((l) => (
+                <li key={l.href}>
+                  <Link
+                    href={l.href}
+                    className="inline-flex min-h-10 items-center text-slate-700 transition hover:text-teal-800 dark:text-slate-300 dark:hover:text-teal-300"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
-            <h4 className="font-extrabold text-gray-900 dark:text-white mb-5 sm:mb-6 text-base sm:text-lg">
-              Connect
-            </h4>
-            <div className="flex flex-wrap gap-3 sm:gap-4">
-              {socialLinks.map((social) => (
-                <Link
-                  key={social.name}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`group relative p-2.5 sm:p-3 rounded-xl bg-gradient-to-r ${social.gradient} bg-opacity-10 dark:bg-opacity-20 hover:bg-opacity-20 dark:hover:bg-opacity-30 border border-transparent hover:border-purple-300 dark:hover:border-purple-600 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-xl`}
-                  aria-label={social.name}
-                >
-                  {social.gradient.includes('purple') ? (
-                    <social.Icon className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600 dark:text-purple-400" />
-                  ) : social.gradient.includes('blue') ? (
-                    <social.Icon className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 dark:text-blue-400" />
-                  ) : social.gradient.includes('emerald') ? (
-                    <social.Icon className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-600 dark:text-emerald-400" />
-                  ) : (
-                    <social.Icon className="w-5 h-5 sm:w-6 sm:h-6 text-indigo-600 dark:text-indigo-400" />
-                  )}
-                  <div className={`absolute inset-0 bg-gradient-to-r ${social.gradient} rounded-xl opacity-0 group-hover:opacity-20 blur-md transition-opacity duration-300 -z-10`} />
-                </Link>
-              ))}
-            </div>
+            <p className="text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400">
+              Colophon
+            </p>
+            <p className="mt-4 text-sm text-slate-600 dark:text-slate-300">
+              Built with{" "}
+              <span className="font-medium text-slate-900 dark:text-slate-100">Next.js</span>,{" "}
+              <span className="font-medium text-slate-900 dark:text-slate-100">React 19</span>, and{" "}
+              <span className="font-medium text-slate-900 dark:text-slate-100">Tailwind CSS</span>.
+            </p>
           </div>
         </div>
 
-        <div className="mt-12 sm:mt-16 pt-8 sm:pt-10 border-t-2 border-purple-200/50 dark:border-purple-800/50 text-center">
-          <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-2">
-            &copy; {currentYear} <span className="font-bold gradient-text">Mikias Abate</span>. All rights reserved.
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-slate-200 pt-8 text-sm text-slate-600 dark:border-slate-700 dark:text-slate-400 sm:flex-row">
+          <p>
+            &copy; {year} {SITE.name}. All rights reserved.
           </p>
-          <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
-            Built with <span className="text-purple-600 dark:text-purple-400 font-semibold">Next.js</span> & 
-            <span className="text-blue-600 dark:text-blue-400 font-semibold"> Tailwind CSS</span> | 
-            <span className="text-pink-600 dark:text-pink-400 font-semibold"> AI-Powered</span> Solutions
-          </p>
+          <p>{SITE.location}</p>
         </div>
       </div>
     </footer>

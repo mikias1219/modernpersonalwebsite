@@ -7,7 +7,7 @@ import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
-    <div className="pt-16 md:pt-20">
+    <div className="pt-14">
       <section id="home">
         <Hero />
       </section>
