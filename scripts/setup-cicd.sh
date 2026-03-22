@@ -107,6 +107,6 @@ echo ""
 echo "Next steps:"
 echo "  1. Push your code: git push origin main"
 echo "  2. Check GitHub Actions: https://github.com/$REPO/actions"
-echo "  3. Your site will auto-deploy to https://www.mikiasabate.tech"
+echo "  3. Your site will auto-deploy via Vercel (see README)"
 echo ""
 

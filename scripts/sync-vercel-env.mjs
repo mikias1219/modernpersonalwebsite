@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Pushes RESEND_API_KEY, CONTACT_TO_EMAIL, and optional CONTACT_FROM_EMAIL
+ * Pushes RESEND_API_KEY, CONTACT_TO_EMAIL, optional CONTACT_FROM_EMAIL / NEXT_PUBLIC_SITE_URL
  * from .env.local to the linked Vercel project (production + preview + development).
  *
  * Requires:
@@ -41,7 +41,12 @@ function parseEnvFile(filePath) {
   return out;
 }
 
-const KEYS = ["RESEND_API_KEY", "CONTACT_TO_EMAIL", "CONTACT_FROM_EMAIL"];
+const KEYS = [
+  "RESEND_API_KEY",
+  "CONTACT_TO_EMAIL",
+  "CONTACT_FROM_EMAIL",
+  "NEXT_PUBLIC_SITE_URL",
+];
 
 async function vercelUpsert({ token, teamId, projectId, key, value }) {
   const params = new URLSearchParams({ teamId, upsert: "true" });
@@ -126,7 +131,7 @@ const cfg = main();
   for (const key of KEYS) {
     const value = fileEnv[key]?.trim();
     if (!value) {
-      if (key === "CONTACT_FROM_EMAIL") continue;
+      if (key === "CONTACT_FROM_EMAIL" || key === "NEXT_PUBLIC_SITE_URL") continue;
       continue;
     }
     process.stdout.write(`Vercel: ${key} … `);

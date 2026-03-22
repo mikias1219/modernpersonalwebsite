@@ -2,7 +2,7 @@
 
 Portfolio site for **Mikias Abate** — Next.js, TypeScript, Tailwind CSS.
 
-🌐 **Live:** [https://www.mikiasabate.tech](https://www.mikiasabate.tech)
+🌐 **Live (Vercel):** [https://mikiasabatesite.vercel.app](https://mikiasabatesite.vercel.app) — optional: set `NEXT_PUBLIC_SITE_URL` in `.env.local` / Vercel when you add a custom domain.
 
 ## Features
 
@@ -58,7 +58,7 @@ npm start
 
 ## Deployment
 
-**mikiasabatesite** is configured for **mikiasabate.tech** with automatic CI/CD.
+**mikiasabatesite** deploys on **Vercel** with automatic CI/CD. Canonical URL defaults to `https://mikiasabatesite.vercel.app` unless you set `NEXT_PUBLIC_SITE_URL`.
 
 ### 🚀 Automatic deployment (CI/CD)
 
@@ -137,7 +137,7 @@ This project is open source and available under the MIT License.
 - **Email:** mikiyasabate1219@gmail.com
 - **LinkedIn:** [mikiyas-abate](https://www.linkedin.com/in/mikiyas-abate)
 - **GitHub:** [mikias1219](https://github.com/mikias1219)
-- **Portfolio:** [mikiasabate.tech](https://www.mikiasabate.tech)
+- **Site:** [mikiasabatesite.vercel.app](https://mikiasabatesite.vercel.app)
 
 ---
 

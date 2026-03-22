@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedin, FaGlobe } from "react-icons/fa";
 import { HiMail } from "react-icons/hi";
 import SectionHeader from "./SectionHeader";
 import { CONTACT_DEV_MODE_MESSAGE } from "@/lib/contact-dev";
-import { SITE } from "@/lib/site";
+import { SITE, siteHostname } from "@/lib/site";
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -68,7 +68,7 @@ export default function Contact() {
       link: SITE.linkedInUrl,
     },
     { Icon: FaGithub, label: "GitHub", value: "mikias1219", link: SITE.githubUrl },
-    { Icon: FaGlobe, label: "Site", value: "mikiasabate.tech", link: SITE.siteUrl },
+    { Icon: FaGlobe, label: "Site", value: siteHostname(), link: SITE.siteUrl },
   ];
 
   return (

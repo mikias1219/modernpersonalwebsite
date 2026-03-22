@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     "Machine Learning",
   ],
   authors: [{ name: SITE.name }],
-  metadataBase: new URL("https://www.mikiasabate.tech"),
+  metadataBase: new URL(SITE.siteUrl),
   alternates: {
     canonical: "/",
   },
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     title: `${SITE.shortName} · ${SITE.name}`,
     description: SITE.tagline,
     type: "website",
-    url: "https://www.mikiasabate.tech",
+    url: SITE.siteUrl,
     siteName: SITE.shortName,
   },
   twitter: {

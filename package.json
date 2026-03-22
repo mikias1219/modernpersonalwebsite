@@ -10,7 +10,8 @@
     "deploy": "bash scripts/deploy.sh",
     "deploy:vercel": "vercel --prod",
     "deploy:preview": "vercel",
-    "env:vercel": "node scripts/sync-vercel-env.mjs"
+    "env:vercel": "node scripts/sync-vercel-env.mjs",
+    "vercel:rename": "node scripts/rename-vercel-project.mjs"
   },
   "dependencies": {
     "@types/nodemailer": "^7.0.4",

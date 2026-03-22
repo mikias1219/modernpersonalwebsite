@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Deployment script for mikiasabate.tech
+# Deployment script (Vercel)
 # This script helps deploy the website to production
 
 set -e
